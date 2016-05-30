@@ -4,10 +4,10 @@
  * Swagger (API documentation) helpers and response objects
  */
 
-var _ = require('lodash');
+const _ = require('lodash');
 
 // HTML error codes with custom descriptions
-var errorCodes = {
+const errorCodes = {
   304: 'Not Modified - Resource was not modified',
   400: 'Bad Request - Client request was malformed or could not be fulfilled',
   404: 'Not Found - API endpoint/resource/page not found',
@@ -16,7 +16,7 @@ var errorCodes = {
   501: 'Not Implemented - This feature is not yet implemented'
 };
 
-var swagger = {
+const swagger = {
 
   // Generate a swagger-compatible array of implementation notes followed
   // by any error codes
@@ -24,7 +24,7 @@ var swagger = {
     opts.notes = opts.notes || [];
     opts.errors = opts.errors || [];
 
-    var retVal = [];
+    const retVal = [];
 
     _.each(opts.notes, function (note) {
       retVal.push(note);

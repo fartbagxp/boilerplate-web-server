@@ -1,21 +1,23 @@
-## Introduction
+# Introduction
 
-This project is to illustrate how to write a simple web server that hosts a single page webpage and utilizes the following technology.
+[![Node version](https://img.shields.io/badge/node-%3E%3D4.4.5-green.svg)](http://nodejs.org/download/)
 
-* Nodejs
-  * [Hapi](http://hapijs.com/api) - Typical http server
-  * [Swagger](http://swagger.io/) - REST API documentation
-  * [Joi](https://github.com/hapijs/joi) - Automatic field validation
+This project is to illustrate how to write a simple web server that hosts
+a single page webpage and utilizes the following technology.
 
-### Todo:
-Add testing framework (Mocha, Sinon, Supertest).
+## How to run
+
+*   Nodejs
+*   [Hapi](http://hapijs.com/api) - Typical http server
+*   [Swagger](http://swagger.io/) - REST API documentation
+*   [Joi](https://github.com/hapijs/joi) - Automatic field validation
 
 ## Useful links
 
 Quick table on HTTP methods and their standard input and output.
 
-- http://www.restapitutorial.com/lessons/httpmethods.html
+*   [http://www.restapitutorial.com/lessons/httpmethods.htm](Tutorial on REST)
 
 Example of better looking Swagger interfaces.
 
-- http://editor.swagger.io/
+*   [Swagger](http://editor.swagger.io/)

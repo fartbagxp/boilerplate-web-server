@@ -1,42 +1,69 @@
 'use strict';
 
+const config = require('../config');
+const swaggerSetup = require('./swagger-setup');
+const routes = require('./routes/api-routes');
 
-var config = require('../config');
-var swaggerSetup = require('./swagger-setup');
-var routes = require('./routes/api-routes');
+const Debug = require('debug');
+const Hapi = require('hapi');
 
-var Debug = require('debug');
-var Hapi = require('hapi');
+const appLogger = Debug('server:app');
 
-var appLogger = Debug('server:app');
+let server;
 
-var server = new Hapi.Server();
+const s = {};
 
-server.connection({
-  host: config.host,
-  port: config.port
-});
+/**
+ * This function starts the server.
+ */
+s.start = function (cb) {
 
+  server = new Hapi.Server;
 
-// Setup documentation using swagger
-swaggerSetup(server);
+  server.connection({
+    host: config.host,
+    port: config.port
+  });
 
-// Add the route
-server.route({
-  method: 'GET',
-  path: '/hello',
-  handler: function(request, reply) {
-    return reply('hello world');
-  }
-});
+  // Setup documentation using swagger
+  swaggerSetup(server);
 
-// setup the rest of the routes
-routes.setup(server);
+  // Add the route
+  server.route({
+    method: 'GET',
+    path: '/hello',
+    handler: function (request, reply) {
+      return reply('Hello World!');
+    }
+  });
 
-// Start the server
-server.start(function(err) {
-  if (err) {
-    throw err;
-  }
-  appLogger('Server running at:', server.info.uri);
-});
+  // setup the rest of the routes
+  routes.setup(server);
+
+  // Start the server
+  server.start(function (err) {
+    if (err) {
+      throw err;
+    }
+    appLogger('Server running at:', server.info.uri);
+
+    cb && cb(err);
+  });
+};
+
+/**
+ * This function stops the server from running.
+ */
+s.stop = function (cb) {
+
+  appLogger('Stopping server');
+
+  server.stop({
+    timeout: 60 * 1000
+  }, function (err) {
+    console.log('Server stopped: ', err);
+    cb && cb(err);
+  });
+};
+
+module.exports = s;
