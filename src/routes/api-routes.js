@@ -1,9 +1,9 @@
 'use strict';
 
-var routes = {};
+const routes = {};
 
 routes.setup = function(server) {
-  require('./get-items-route')(server);
+  require('./get-health')(server);
 };
 
 module.exports = routes;

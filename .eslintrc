@@ -12,11 +12,21 @@
       2,
       "always"
     ],
-    "no-console" : 0
+    "no-console" : 0,
+    "no-var": 1
   },
   "env": {
     "node": true,
-    "jasmine" : true
+    "jasmine" : true,
+    "mocha" : true,
+    "es6": true
+  },
+  "ecmaFeatures": {
+    "modules": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module"
   },
   "extends": "eslint:recommended",
   "globals": {

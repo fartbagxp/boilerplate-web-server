@@ -1,8 +1,8 @@
 'use strict';
 
-var config = {
-  host: '127.0.0.1',
-  port: '47271'
+const config = {
+  host: process.env.SERVER_HOST,
+  port: process.env.SERVER_PORT
 };
 
 module.exports = config;

@@ -1,12 +1,10 @@
 'use strict';
 
-var Joi = require('joi');
-var swagger = require('./swagger');
+const Joi = require('joi');
+const swagger = require('./swagger');
 
 // This is the schema that the handler should respond with.
-var responseSchema = Joi.object({
-  item: Joi.string().required().description('item')
-});
+const responseSchema = Joi.string().required().description('item');
 
 /**
  * This is the function that will handle the API call for items.
@@ -14,10 +12,8 @@ var responseSchema = Joi.object({
  * @param  {[Object]} reply   The reply which we'll format.
  * @return {[Object]}         A reply message
  */
-function getItemHandler(request, reply) {
-  return reply({
-    item: 'hello'
-  });
+function getHealthStatus(request, reply) {
+  return reply('Health and Status!').code(200);
 }
 
 /**
@@ -28,13 +24,12 @@ function getItemHandler(request, reply) {
 function setup(server) {
   server.route({
     method: 'GET',
-    path: '/items',
-    handler: getItemHandler,
+    path: '/health',
+    handler: getHealthStatus,
     config: {
-      description: 'Get the latest item.',
+      description: 'Get the latest health and status.',
       notes: swagger.notes({
-        notes: ['Show all status of the current running system.'],
-        errors: [500, 501]
+        notes: ['Get the health and status of the system.']
       }),
       tags: ['api'],
       response: {
