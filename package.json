@@ -1,13 +1,14 @@
 {
   "name": "boilerplate-web-server",
   "version": "1.0.0",
-  "description": "This project is a boilerplate project to setup a webserver with hapi and swagger",
+  "description": "This project is a boilerplate project to setup a webserver with hapi and swagger.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "node_modules/.bin/mocha -c --recursive src/**/*.spec.js",
-    "cover": "node_modules/.bin/istanbul cover node_modules/mocha/bin/_mocha -- -R spec --recursive ./src/**/*.spec.js",
-    "lint": "node_modules/.bin/eslint ."
+    "test": "node_modules/.bin/mocha -c --recursive src/",
+    "cover": "node_modules/.bin/istanbul cover node_modules/mocha/bin/_mocha -- -R spec --recursive ./src/",
+    "lint": "node_modules/.bin/eslint src/",
+    "pre-commit": "npm test && npm run cover && npm run lint"
   },
   "author": "",
   "license": "MIT",
@@ -21,7 +22,6 @@
     "vision": "4.0.x"
   },
   "devDependencies": {
-    "async": "^2.0.0-rc.5",
     "chai": "^3.5.0",
     "eslint": "1.10.x",
     "istanbul": "^0.4.3",
