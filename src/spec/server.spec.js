@@ -33,8 +33,9 @@ describe('Server setup testing.', function () {
         server.stop(cb);
       });
 
-      async.waterfall(steps, function(err) {
-        expect(err).to.be.null;
+      async.waterfall(steps, function(err, result) {
+        expect(err).to.be.undefined;
+        expect(result).to.be.undefind;
         done();
       });
     });
