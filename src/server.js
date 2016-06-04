@@ -61,7 +61,6 @@ s.stop = function (cb) {
   server.stop({
     timeout: 60 * 1000
   }, function (err) {
-    console.log('Server stopped: ', err);
     cb && cb(err);
   });
 };
