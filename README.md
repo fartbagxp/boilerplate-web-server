@@ -2,6 +2,8 @@
 
 [![Node version](https://img.shields.io/badge/node-%3E%3D4.4.5-green.svg)](http://nodejs.org/download/)
 
+[![Build Status](https://travis-ci.org/fartbagxp/boilerplate-web-server.svg?branch=master)](https://travis-ci.org/)
+
 This project is to illustrate how to write a simple web server that hosts
 a single page webpage and utilizes the following technology.
 
